@@ -17,3 +17,4 @@ Route::middleware([
 });
 
 require __DIR__.'/shop.php';
+require __DIR__.'/admin.php';
