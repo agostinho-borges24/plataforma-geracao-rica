@@ -7,7 +7,12 @@ use App\Http\Controllers\Checkout\StripeWebhookController;
 use App\Livewire\Cart\CartPage;
 use App\Livewire\Checkout\CheckoutPage;
 use App\Livewire\Checkout\ManualPaymentPage;
+use App\Livewire\Products\ProductCatalog;
+use App\Livewire\Products\ProductShow;
 use Illuminate\Support\Facades\Route;
+
+Route::get('/produtos', ProductCatalog::class)->name('products.index');
+Route::get('/produtos/{product:slug}', ProductShow::class)->name('products.show');
 
 Route::get('/carrinho', CartPage::class)->name('cart.index');
 
