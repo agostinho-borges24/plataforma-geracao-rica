@@ -1,0 +1,363 @@
+/* ==========================================================================
+   Base — plataforma de cursos/e-books
+   ========================================================================== */
+
+:root {
+    --color-bg: #f7f7f8;
+    --color-surface: #ffffff;
+    --color-border: #e2e2e6;
+    --color-text: #1f2023;
+    --color-text-muted: #6b6f76;
+    --color-primary: #2f6fed;
+    --color-primary-hover: #2557c4;
+    --color-danger: #d1453d;
+    --color-danger-hover: #b13931;
+    --color-success-bg: #e7f7ee;
+    --color-success-text: #1f7a4d;
+    --color-error-bg: #fdecea;
+    --color-error-text: #b3261e;
+    --radius: 8px;
+    --spacing: 1rem;
+}
+
+body {
+    background: var(--color-bg);
+    color: var(--color-text);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.5;
+}
+
+h1 { font-size: 1.75rem; margin-bottom: 1rem; }
+h2 { font-size: 1.25rem; margin: 1.5rem 0 0.75rem; }
+
+a { color: var(--color-primary); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+label { display: block; font-weight: 600; margin-top: 1rem; margin-bottom: 0.25rem; }
+
+input[type="text"],
+input[type="email"],
+input[type="number"],
+input[type="file"],
+select,
+textarea {
+    width: 100%;
+    max-width: 480px;
+    padding: 0.6rem 0.75rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    background: var(--color-surface);
+    font-size: 1rem;
+}
+
+textarea { max-width: 100%; }
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 400;
+}
+.checkbox-label input { width: auto; }
+
+/* ---------- Botões ---------- */
+.btn {
+    display: inline-block;
+    padding: 0.6rem 1.25rem;
+    border-radius: var(--radius);
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: center;
+}
+.btn--primary { background: var(--color-primary); color: #fff; }
+.btn--primary:hover { background: var(--color-primary-hover); text-decoration: none; }
+.btn--secondary { background: var(--color-surface); color: var(--color-text); border: 1px solid var(--color-border); }
+.btn--secondary:hover { background: #f0f0f2; text-decoration: none; }
+.btn--danger { background: var(--color-danger); color: #fff; }
+.btn--danger:hover { background: var(--color-danger-hover); text-decoration: none; }
+
+button[disabled] { opacity: 0.6; cursor: not-allowed; }
+
+/* ---------- Alertas / erros ---------- */
+.alert {
+    padding: 0.75rem 1rem;
+    border-radius: var(--radius);
+    margin: 1rem 0;
+}
+.alert--success { background: var(--color-success-bg); color: var(--color-success-text); }
+.alert--error { background: var(--color-error-bg); color: var(--color-error-text); }
+
+.field-error {
+    display: block;
+    color: var(--color-error-text);
+    font-size: 0.85rem;
+    margin-top: 0.25rem;
+}
+
+/* ==========================================================================
+   Loja pública — catálogo e produto
+   ========================================================================== */
+
+.product-catalog__filters {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+}
+
+.product-catalog__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.25rem;
+}
+
+.product-card {
+    display: block;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    color: inherit;
+}
+.product-card:hover { border-color: var(--color-primary); text-decoration: none; }
+.product-card img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block; }
+.product-card__type {
+    display: inline-block;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    margin: 0.75rem 0 0 0.75rem;
+}
+.product-card__title { font-size: 1rem; margin: 0.25rem 0.75rem; }
+.product-card__price { display: block; margin: 0 0.75rem 0.75rem; font-weight: 700; }
+
+.product-show__header {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+}
+.product-show__header img {
+    max-width: 360px;
+    width: 100%;
+    border-radius: var(--radius);
+}
+.product-show__type { text-transform: uppercase; font-size: 0.8rem; color: var(--color-text-muted); }
+.product-show__price { font-size: 1.5rem; font-weight: 700; margin: 0.5rem 0 1rem; }
+.product-show__description { max-width: 720px; }
+
+/* ==========================================================================
+   Carrinho
+   ========================================================================== */
+
+.cart__items { list-style: none; padding: 0; margin: 1.5rem 0; }
+.cart__item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.85rem 0;
+    border-bottom: 1px solid var(--color-border);
+}
+.cart__item-type { display: block; font-size: 0.75rem; text-transform: uppercase; color: var(--color-text-muted); }
+.cart__item-title { font-size: 1rem; margin: 0.15rem 0 0; }
+.cart__item-price { font-weight: 700; white-space: nowrap; }
+.cart__item-remove {
+    background: none;
+    border: none;
+    color: var(--color-danger);
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.cart__summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 1rem;
+}
+
+/* ==========================================================================
+   Checkout
+   ========================================================================== */
+
+.checkout__summary {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+}
+.checkout__summary ul { margin: 0 0 0.5rem; padding-left: 1.1rem; }
+
+.checkout__step {
+    max-width: 480px;
+    display: flex;
+    flex-direction: column;
+}
+
+.checkout__manual-country,
+.checkout__price-preview {
+    margin-top: 1rem;
+    padding: 0.85rem;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+}
+
+.checkout__payment-methods {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin: 0.75rem 0;
+}
+.payment-method-option {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 400;
+    padding: 0.6rem 0.85rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    cursor: pointer;
+}
+
+.checkout__actions {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+}
+
+.checkout-result {
+    max-width: 480px;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+}
+
+/* ---------- Pagamento manual ---------- */
+.manual-payment__bank-details {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 1rem;
+    margin: 1rem 0 1.5rem;
+    max-width: 480px;
+}
+.manual-payment__bank-details ul { list-style: none; padding: 0; margin: 0.5rem 0; }
+.manual-payment__bank-details li { padding: 0.2rem 0; }
+
+.manual-payment__upload { max-width: 480px; }
+
+/* ==========================================================================
+   Admin
+   ========================================================================== */
+
+.admin-body { background: var(--color-bg); }
+
+.admin-topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.85rem 1.5rem;
+    background: var(--color-surface);
+    border-bottom: 1px solid var(--color-border);
+}
+.admin-topbar__brand { font-weight: 700; }
+.admin-topbar__logout {
+    background: none;
+    border: none;
+    color: var(--color-text-muted);
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.admin-main { max-width: 1080px; margin: 0 auto; padding: 1.5rem; }
+
+.admin-nav {
+    display: flex;
+    gap: 1.25rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.admin-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    margin-top: 1rem;
+}
+.admin-table th,
+.admin-table td {
+    text-align: left;
+    padding: 0.65rem 0.85rem;
+    border-bottom: 1px solid var(--color-border);
+    font-size: 0.9rem;
+}
+.admin-table th { background: #fafafb; font-weight: 600; }
+.admin-table tr:last-child td { border-bottom: none; }
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin: 1rem 0 2rem;
+}
+.stat-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 1rem;
+}
+.stat-card--alert { border-color: var(--color-danger); }
+.stat-card__label { display: block; font-size: 0.8rem; color: var(--color-text-muted); }
+.stat-card__value { display: block; font-size: 1.6rem; font-weight: 700; margin-top: 0.25rem; }
+
+.access-link-row {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    margin-top: 0.5rem;
+}
+.access-link-row input { max-width: none; }
+
+.form-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.payment-review__details,
+.payment-review__proof,
+.payment-review__actions {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 1rem;
+    margin-bottom: 1rem;
+    max-width: 640px;
+}
+
+.payment-review__actions { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: flex-start; }
+
+.reject-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+    margin-top: 0.75rem;
+}
