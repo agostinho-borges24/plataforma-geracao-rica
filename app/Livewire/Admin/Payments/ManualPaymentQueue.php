@@ -4,9 +4,11 @@ namespace App\Livewire\Admin\Payments;
 
 use App\Enums\OrderStatus;
 use App\Models\Order;
+use Livewire\Attributes\Layout;
 use Livewire\Component;
 use Livewire\WithPagination;
 
+#[Layout('layouts.admin')]
 class ManualPaymentQueue extends Component
 {
     use WithPagination;
