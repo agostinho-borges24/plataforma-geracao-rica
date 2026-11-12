@@ -4,8 +4,10 @@ namespace App\Livewire\Admin\Payments;
 
 use App\Models\Order;
 use App\Services\OrderFulfillmentService;
+use Livewire\Attributes\Layout;
 use Livewire\Component;
 
+#[Layout('layouts.admin')]
 class ManualPaymentReview extends Component
 {
     public Order $order;
