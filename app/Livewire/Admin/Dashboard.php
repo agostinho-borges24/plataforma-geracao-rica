@@ -4,8 +4,10 @@ namespace App\Livewire\Admin;
 
 use App\Enums\OrderStatus;
 use App\Models\Order;
+use Livewire\Attributes\Layout;
 use Livewire\Component;
 
+#[Layout('layouts.admin')]
 class Dashboard extends Component
 {
     public function render()
