@@ -3,9 +3,11 @@
 namespace App\Livewire\Admin\Products;
 
 use App\Models\Product;
+use Livewire\Attributes\Layout;
 use Livewire\Component;
 use Livewire\WithPagination;
 
+#[Layout('layouts.admin')]
 class ProductIndex extends Component
 {
     use WithPagination;
