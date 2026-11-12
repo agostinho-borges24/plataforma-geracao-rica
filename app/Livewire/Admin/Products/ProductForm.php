@@ -4,8 +4,10 @@ namespace App\Livewire\Admin\Products;
 
 use App\Models\Product;
 use Illuminate\Support\Str;
+use Livewire\Attributes\Layout;
 use Livewire\Component;
 
+#[Layout('layouts.admin')]
 class ProductForm extends Component
 {
     public ?Product $product = null;
